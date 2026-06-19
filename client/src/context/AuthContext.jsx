@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-
+import.meta.env.VITE_API_URL;
 const AuthContext = createContext();
 
 export const useAuth = () => useContext(AuthContext);
@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
 
     const api = axios.create({
-        baseURL: 'http://localhost:5000/api',
+        baseURL: `${import.meta.env.VITE_API_URL}/api`,
         withCredentials: true
     });
 
